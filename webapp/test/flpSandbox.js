@@ -40,7 +40,7 @@ sap.ui.define([
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
 									"title": "PCC customer files",
-									"targetURL": "#pcccustfileszcustomerfiles-display"
+									"targetURL": "#pcccustfileszcustomerfilesv2-display"
 								}
 							}]
 						}]
@@ -51,8 +51,8 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"pcccustfileszcustomerfiles-display": {
-								"semanticObject": "pcccustfileszcustomerfiles",
+							"pcccustfileszcustomerfilesv2-display": {
+								"semanticObject": "pcccustfileszcustomerfilesv2",
 								"action": "display",
 								"description": "Display files from server",
 								"title": "PCC customer files",
@@ -61,8 +61,8 @@ sap.ui.define([
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=pcc.custfiles.zcustomerfiles",
-									"url": sap.ui.require.toUrl("pcc/custfiles/zcustomerfiles")
+									"additionalInformation": "SAPUI5.Component=pcc.custfiles.zcustomerfilesv2",
+									"url": sap.ui.require.toUrl("pcc/custfiles/zcustomerfilesv2")
 								}
 							}
 						}

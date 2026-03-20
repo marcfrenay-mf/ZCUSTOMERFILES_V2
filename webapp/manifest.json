@@ -1,7 +1,7 @@
 {
   "_version": "1.17.0",
   "sap.app": {
-    "id": "pcc.custfiles.zcustomerfiles",
+    "id": "pcc.custfiles.zcustomerfilesv2",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -79,7 +79,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "pcc.custfiles.zcustomerfiles.i18n.i18n"
+          "bundleName": "pcc.custfiles.zcustomerfilesv2.i18n.i18n"
         }
       },
       "": {
@@ -100,7 +100,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "pcc.custfiles.zcustomerfiles.view",
+        "viewPath": "pcc.custfiles.zcustomerfilesv2.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -126,7 +126,7 @@
       }
     },
     "rootView": {
-      "viewName": "pcc.custfiles.zcustomerfiles.view.App",
+      "viewName": "pcc.custfiles.zcustomerfilesv2.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

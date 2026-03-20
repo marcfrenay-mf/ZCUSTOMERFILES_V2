@@ -1,5 +1,5 @@
 sap.ui.define([
-    "pcc/custfiles/zcustomerfiles/controller/BaseController",
+    "pcc/custfiles/zcustomerfilesv2/controller/BaseController",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "sap/ui/core/library",
@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/format/DateFormat",
-    "pcc/custfiles/zcustomerfiles/utils/formatter",
+    "pcc/custfiles/zcustomerfilesv2/utils/formatter",
     "sap/m/MessageToast",
     "sap/m/MessageBox",
     "sap/m/MessagePopover",
@@ -21,7 +21,7 @@ sap.ui.define([
         MessageToast, MessageBox, MessagePopover, MessagePopoverItem, merge) {
         "use strict";
 
-        return BaseController.extend("pcc.custfiles.zcustomerfiles.controller.main", {
+        return BaseController.extend("pcc.custfiles.zcustomerfilesv2.controller.main", {
             onInit: function () {
 
                 this.sEmployeeNumber = null; //Selected EmployeeNumber

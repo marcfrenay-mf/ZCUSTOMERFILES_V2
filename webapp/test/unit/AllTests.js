@@ -1,5 +1,5 @@
 sap.ui.define([
-	"pcccustfiles/zcustomerfiles/test/unit/controller/main.controller"
+	"pcccustfiles/zcustomerfilesv2/test/unit/controller/main.controller"
 ], function () {
 	"use strict";
 });

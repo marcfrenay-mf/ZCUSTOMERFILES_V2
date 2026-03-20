@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "pcc.custfiles.zcustomerfiles.view.",
+		viewNamespace: "pcc.custfiles.zcustomerfilesv2.view.",
 		autoWait: true
 	});
 });

@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"pcccustfiles/zcustomerfiles/test/unit/AllTests"
+		"pcccustfiles/zcustomerfilesv2/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});

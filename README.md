@@ -8,7 +8,7 @@
 |**Template Used**<br>simple|
 |**Service Type**<br>SAP System (ABAP On Premise)|
 |**Service URL**<br>https://my551014.payroll.hr.cloud.sap/sap/opu/odata/sap/ZCUSTOMERFILES_SRV
-|**Module Name**<br>zcustomerfiles|
+|**Module Name**<br>zcustomerfilesv2|
 |**Application Title**<br>PCC customer files|
 |**Namespace**<br>pcc.custfiles|
 |**UI5 Theme**<br>sap_fiori_3|
@@ -17,7 +17,7 @@
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## zcustomerfiles
+## zcustomerfilesv2
 
 Display files from server
 

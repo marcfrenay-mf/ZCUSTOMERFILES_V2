@@ -5,12 +5,12 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "pcc/custfiles/zcustomerfiles/model/models"
+        "pcc/custfiles/zcustomerfilesv2/model/models"
     ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("pcc.custfiles.zcustomerfiles.Component", {
+        return UIComponent.extend("pcc.custfiles.zcustomerfilesv2.Component", {
             metadata: {
                 manifest: "json"
             },

@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("pcc.custfiles.zcustomerfiles.controller.App", {
+      return BaseController.extend("pcc.custfiles.zcustomerfilesv2.controller.App", {
         onInit: function() {
         }
       });

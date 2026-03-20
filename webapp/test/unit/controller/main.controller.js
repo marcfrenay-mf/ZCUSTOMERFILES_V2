@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"pcccustfiles/zcustomerfiles/controller/main.controller"
+	"pcccustfiles/zcustomerfilesv2/controller/main.controller"
 ], function (Controller) {
 	"use strict";
 

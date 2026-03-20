@@ -1,6 +1,6 @@
 sap.ui.define(["sap/ui/core/mvc/Controller"], function (C) {
 	"use strict";
-	return C.extend("pcc.custfiles.zcustomerfiles.controller.BaseController", {
+	return C.extend("pcc.custfiles.zcustomerfilesv2.controller.BaseController", {
 		getRouter: function () {
 			return sap.ui.core.UIComponent.getRouterFor(this);
 		},

@@ -14,7 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "pcc.custfiles.zcustomerfiles",
+					name: "pcc.custfiles.zcustomerfilesv2",
 					async: true
 				},
 				hash: oOptions.hash,

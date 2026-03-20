@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="pcc.custfiles.zcustomerfiles.controller.main"
+    controllerName="pcc.custfiles.zcustomerfilesv2.controller.main"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -10,7 +10,7 @@
                 <Page id="page" title="{i18n>title}" >
                 <content>
                         <l:ResponsiveFlowLayout id="mainFlowLayout">
-                            <core:Fragment fragmentName="pcc.custfiles.zcustomerfiles.fragment.main.FilesVBox" type="XML" />
+                            <core:Fragment fragmentName="pcc.custfiles.zcustomerfilesv2.fragment.main.FilesVBox" type="XML" />
                         </l:ResponsiveFlowLayout>
                 </content>
                 </Page>
