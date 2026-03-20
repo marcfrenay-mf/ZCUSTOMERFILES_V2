@@ -9,7 +9,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
         ui5:
           path:
             - /resources
@@ -19,7 +19,11 @@ server:
           - path: /sap
             url: https://my551014.payroll.hr.cloud.sap
             client: '100'
-            destination: G5J
+            destination: KR5
+          - url: https://my5500851.payroll.hr.cloud.sap
+            client: '100'
+            destination: KR5
+            path: /sap/opu/odata/sap/ZCUSTOMERFILESV2_SRV/
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -31,7 +35,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/ZCUSTOMERFILES_SRV
+          - urlPath: /sap/opu/odata/sap/ZCUSTOMERFILESV2_SRV
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
