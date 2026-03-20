@@ -1,0 +1,102 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <VBox renderType="Div" class="sapUiResponsiveMargin">
+<!--         <MessageStrip text="{i18n>mainMessage1}" type="Success" showIcon="false" class="sapUiTinyMargin" /> -->
+        <Panel id="mainPanel" expandable="true" expanded="true" headerText="{i18n>mainTabTitle}" width="auto" expand="onMainPanelExpand" busy="{= ${main>/busy}}">
+            <OverflowToolbar>
+                <!-- Process type(s) selection -->
+                <Label id="processTypeComboBoxLabel" labelFor="processTypeComboBox" text="{i18n>searchProcessTypeTxt}" tooltip="{i18n>searchProcessTypeTxt}" wrapping="true" visible="{= ${main>/FilesTableItems}.length > 0 ? true : false}"/>
+                <MultiComboBox id="processTypeComboBox" tooltip="{i18n>searchProcessTypeTxt}" placeholder="{i18n>select}" width="auto" selectionChange="onProcessTypeComboBox" 
+                    items="{main>/fileProcessTypeFilterList}" busy="{= ${main>/isFilesTableLoading}}" visible="{= ${main>/FilesTableItems}.length > 0 ? true : false}">
+                    <items>
+                        <core:Item key="{main>ProcessType}" text="{main>ProcessType}" />
+                    </items>
+                </MultiComboBox>
+                <!-- File type(s) selection -->
+                <Label id="fileTypeComboBoxLabel" labelFor="fileTypeComboBox" text="{i18n>searchFileTypeTxt}" tooltip="{i18n>searchFileTypeTxt}" wrapping="true" visible="{= ${main>/FilesTableItems}.length > 0 ? true : false}"/>
+                <MultiComboBox id="fileTypeComboBox" tooltip="{i18n>searchFileTypeTxt}" placeholder="{i18n>select}" width="auto" selectionChange="onTypeComboBox" 
+                    items="{main>/fileTypeFilterList}" busy="{= ${main>/isFilesTableLoading}}" visible="{= ${main>/FilesTableItems}.length > 0 ? true : false}">
+                    <items>
+                        <core:Item key="{main>Type}" text="{main>Type}" />
+                    </items>
+                </MultiComboBox>     
+                <!-- File name search field -->
+                <SearchField width="20%" placeholder="{i18n>fileNameTxt}" liveChange="onSearchFile">
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            shrinkable="true"
+                            minWidth = "100px"/>
+                    </layoutData>
+                </SearchField>                           
+                <ToolbarSpacer />
+                <core:InvisibleText id="mainDatePickerAccLabel" text="{i18n>showFileListFrom}" />
+                <!-- Show files as of -->
+                <Label labelFor="FilesListDatePicker" text="{i18n>showFrom}" tooltip="{i18n>showFrom}" wrapping="true" >
+                    <layoutData> 
+                        <!-- All controls with the same group number overflow together -->
+                        <OverflowToolbarLayoutData group="9"/>
+                    </layoutData>
+                </Label>
+                <DatePicker id="FilesListDatePicker" width="auto" dateValue="{main>/defaultStartDate}" change="onDateChangedFileList" tooltip="{i18n>showFileListFrom}"
+                    busyIndicatorDelay="0" ariaLabelledBy="DatePickerAccLabel" >
+                    <layoutData> 
+                        <!-- All controls with the same group number overflow together -->
+                        <OverflowToolbarLayoutData priority="Low" group="9"/>
+                    </layoutData>
+                </DatePicker> 
+            </OverflowToolbar>
+            <!-- File list table -->
+            <Table id="FilesTable" fixedLayout="true" inset="false" items="{main>/FilesTableItems}" noDataText="{i18n>noFileDataTable}" busy="{= ${main>/isFilesTableLoading}}"
+                growing="true" growingThreshold="50" growingScrollToLoad="false" visible="true" includeItemInSelection="true" class="sapUiTinyMarginTop sapUiTinyMarginEnd">
+                <columns>
+                    <!-- Process Type -->
+                    <Column id="fileProcessTypeCol" width="25%">
+                        <Text id="fileProcessTypeTxt" text="{i18n>fileProcessTypeTxt}" tooltip="{i18n>fileProcessTypeTxt}"/>
+                    </Column>
+                    <!-- Payroll Period -->
+                    <Column id="pyPeriodCol" width="12%">
+                        <Text id="pyPeriodTxt" text="{i18n>pyPeriodTxt}" tooltip="{i18n>pyPeriodTxt}"/>
+                    </Column>                    
+                    <!-- Start Date -->
+                    <Column id="DateCol"  width="15%" minScreenWidth="Desktop" demandPopin="true" popinDisplay="{= ${device>/system/phone} ? 'WithoutHeader' : 'Block'}" hAlign="{= ${device>/system/phone} ? 'End' : 'Begin'}">
+                        <Text id="dateTxt" text="{i18n>dateTxt}" tooltip="{i18n>dateTxt}"/>
+                    </Column>
+                    <!-- File Name -->
+                    <Column id="fileNameCol">
+                        <Text id="fileNameTxt" text="{i18n>fileNameTxt}" tooltip="{i18n>fileNameTxt}"/>
+                    </Column>    
+                    <!-- File Type -->
+                    <Column id="fileTypeCol" width="10%">
+                        <Text id="fileTypeTxt" text="{i18n>fileTypeTxt}" tooltip="{i18n>fileTypeTxt}"/>
+                    </Column>                           
+                    <!-- Column for action buttons -->
+                    <Column id="_IDGenColumn" minScreenWidth="Tablet"  demandPopin="true" width="7%"/>
+                </columns>
+                <items>
+                    <ColumnListItem type="Inactive" id="FileColumnListItem" press="onFileItemPressed">
+                        <cells>
+                            <!-- Process type -->
+                            <ObjectAttribute id="fileProcessTypeCell" text="{main>ProcessType}" tooltip="{i18n>fileProcessTypeTxt}" class="sapMTableContentMargin" />
+                            <!-- Payroll Period -->
+                            <ObjectAttribute id="pyPeriodCell" text="{main>PyPeriod}" tooltip="{i18n>pyPeriodTxt}" class="sapMTableContentMargin" />                            
+                            <!-- Date only-->
+       <!--                      <ObjectAttribute id="dateCell" tooltip="{i18n>dateTxt}" 
+                                text="{parts:[ {path:'main>StartDate', type: 'sap.ui.model.odata.type.DateTime',  formatOptions: { style: 'medium' }, constraints: { displayFormat : 'Date' }}], formatter:'.formatter.formatDate'}" class="sapMTableContentMargin"/>  -->                         
+                            <!-- Date and Time-->
+                            <ObjectAttribute id="dateCell" tooltip="{i18n>dateTxt}" 
+                                text="{parts:[ {path:'main>StartDate', type: 'sap.ui.model.odata.type.DateTime',  formatOptions: { pattern: 'yyyy/MM/dd HH:mm:ss' }}]}" class="sapMTableContentMargin"/> 
+                            <!-- File Name -->
+                            <ObjectAttribute id="fileNameCell" text="{main>FileName}" tooltip="{i18n>fileNameTxt}" class="sapMTableContentMargin" />
+                            <!-- File Type -->
+                            <ObjectAttribute id="fileTypeCell" text="{main>Type}" tooltip="{i18n>fileTypeTxt}" class="sapMTableContentMargin" />                            
+                            <!-- Action buttons, placed inside 1 HBox, to get good/better looking right alignment -->
+                            <HBox id="_IDGenHBox" alignItems="Center" justifyContent="End">
+                                <Button id="downloadBtn" icon="sap-icon://download" press="onDownloadPress" type="Transparent" tooltip="{i18n>downloadTxt}" />
+                                <Button id="deleteBtn" icon="sap-icon://delete" press="onDeletePress" type="Transparent" tooltip="{i18n>deleteTxt}" />
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>
