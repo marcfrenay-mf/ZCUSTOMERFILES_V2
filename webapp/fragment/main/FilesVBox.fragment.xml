@@ -42,7 +42,9 @@
                         <!-- All controls with the same group number overflow together -->
                         <OverflowToolbarLayoutData priority="Low" group="9"/>
                     </layoutData>
-                </DatePicker> 
+                </DatePicker>
+                <!-- Refresh the file list (global busy) -->
+                <Button id="refreshBtn" icon="sap-icon://refresh" press="onRefreshPress" type="Transparent" tooltip="{i18n>refreshTxt}" enabled="{= !${main>/busy}}"/>
             </OverflowToolbar>
             <!-- File list table -->
             <Table id="FilesTable" fixedLayout="true" inset="false" items="{main>/FilesTableItems}" noDataText="{i18n>noFileDataTable}" busy="{= ${main>/isFilesTableLoading}}"

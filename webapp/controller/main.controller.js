@@ -79,8 +79,16 @@ sap.ui.define([
                 var defaultStartDate = this.getModel("main").getProperty("/defaultStartDate");
 
                 this._MainModel.setProperty("/isFilesTableLoading", true);
-                this.readFileList(defaultStartDate).then(function (r) {
-                });
+                // Global busy: shown on the whole panel while the list is (re)loading
+                this._MainModel.setProperty("/busy", true);
+                return this.readFileList(defaultStartDate).then(function (r) {
+                    this._MainModel.setProperty("/isFilesTableLoading", false);
+                    this._MainModel.setProperty("/busy", false);
+                    return r;
+                }.bind(this));
+            },
+            onRefreshPress: function () {
+                this.getFilesList();
             },
             onDateChangedFileList: function (E) {
                 var n = d.getDateInstance().parse(E.getParameter("newValue")),
